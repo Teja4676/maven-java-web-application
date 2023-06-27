@@ -1,0 +1,33 @@
+pipeline:
+  identifier: Build_maven_java_web_application_1687847955299
+  name: Build maven-java-web-application
+  orgIdentifier: default
+  projectIdentifier: Deployment
+  properties:
+    ci:
+      codebase:
+        build: <+input>
+        connectorRef: account.Github
+        repoName: Teja4676/maven-java-web-application
+  stages:
+    - stage:
+        identifier: build
+        name: build
+        spec:
+          cloneCodebase: true
+          execution:
+            steps:
+              - step:
+                  identifier: echo
+                  name: echo
+                  spec:
+                    command: echo hello world
+                  timeout: ""
+                  type: Run
+          platform:
+            arch: Amd64
+            os: Linux
+          runtime:
+            spec: {}
+            type: Cloud
+        type: CI
